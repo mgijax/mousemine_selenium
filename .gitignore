@@ -1,0 +1,16 @@
+# python compiled files
+*.pyc
+*.log
+
+
+# editor temp files
+*~
+\#*\#
+.idea/
+~$*
+
+# generated files and directories
+LOG
+.DS_Store
+
+sandbox/
