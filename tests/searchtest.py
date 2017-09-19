@@ -1,4 +1,3 @@
-import unittest
 from ddt import ddt, data, unpack
 import sys
 sys.path.append("..")
