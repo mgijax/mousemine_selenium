@@ -19,10 +19,14 @@ class BasePage(object):
         return SearchRegion(self.driver)
 
     @property
+    def templates(self):
+        from templatespage import TemplatesPage
+        return TemplatesPage(self.driver)
+
+    @property
     def lists(self):
         from listspage import ListsPage
         return ListsPage(self.driver)
-
 
 class InvalidPageException(Exception):
     """ Throw this exception when you don't find the correct page """
