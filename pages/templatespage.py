@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions
 class TemplatesPage(BasePage):
 
     _templates_page_title = 'MouseMine: Template queries page'
-    _menu_locator = 'menucontainer'
     _templates_tab_locator = 'templates'
 
     _template_title_locator = 'templateTitle'
@@ -23,7 +22,7 @@ class TemplatesPage(BasePage):
             self._templates[template_name] = template.get_attribute('href')
 
     def _validate_page(self, driver):
-        templates_tab = driver.find_element_by_id(self._menu_locator).find_element_by_id(self._templates_tab_locator)
+        templates_tab = self.tab_selector.find_element_by_id(self._templates_tab_locator)
         templates_tab.click()
         try:
             WebDriverWait(driver, 5).until(expected_conditions.title_is(self._templates_page_title))

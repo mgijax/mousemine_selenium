@@ -4,7 +4,10 @@ from abc import abstractmethod
 class BasePage(object):
     """ All page objects inherit from this """
 
+    _tab_container_locator = 'menucontainer'
+
     def __init__(self, driver):
+        self.tab_selector = driver.find_element_by_id(self._tab_container_locator)
         self._validate_page(driver)
         self.driver = driver
 

@@ -15,7 +15,6 @@ def getDropdownList(driver, id_locator):
 class ListsPage(BasePage):
 
     _lists_page_title = 'MouseMine: Lists'
-    _menu_locator = 'menucontainer'
     _list_tab_locator = 'bags'
     _type_selector_locator = 'typeSelector'
     _organism_selector_locator = 'extraConstraintSelect'
@@ -36,7 +35,7 @@ class ListsPage(BasePage):
 
 
     def _validate_page(self, driver):
-        list_tab = driver.find_element_by_id(self._menu_locator).find_element_by_id(self._list_tab_locator)
+        list_tab = self.tab_selector.find_element_by_id(self._list_tab_locator)
         list_tab.click()
         try:
             WebDriverWait(driver, 5).until(expected_conditions.title_is(self._lists_page_title))
